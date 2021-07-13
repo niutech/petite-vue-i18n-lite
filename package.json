@@ -1,11 +1,11 @@
 {
-  "name": "vue-i18n-lite",
+  "name": "petite-vue-i18n-lite",
   "version": "1.0.1",
-  "main": "dist/vue-i18n-lite.cjs.js",
-  "unpkg": "dist/vue-i18n-lite.global.js",
-  "jsdelivr": "dist/vue-i18n-lite.global.js",
-  "module": "dist/vue-i18n-lite.esm-bundler.js",
-  "types": "dist/vue-i18n-lite.d.ts",
+  "main": "dist/petite-vue-i18n-lite.cjs.js",
+  "unpkg": "dist/petite-vue-i18n-lite.global.js",
+  "jsdelivr": "dist/petite-vue-i18n-lite.global.js",
+  "module": "dist/petite-vue-i18n-lite.esm-bundler.js",
+  "types": "dist/petite-vue-i18n-lite.d.ts",
   "sideEffects": false,
   "scripts": {
     "serve": "cd playground && yarn serve",
@@ -17,20 +17,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FrontLabsOfficial/vue-i18n-lite.git"
+    "url": "git+https://github.com/niutech/petite-vue-i18n-lite.git"
   },
   "keywords": [
     "vue",
+    "petite-vue",
     "i18n",
     "vue-i18n",
     "vue-i18n-lite"
   ],
-  "author": "Erik Pham<phucpm.it@gmail.com>",
+  "author": "Erik Pham & niu tech",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/FrontLabsOfficial/vue-i18n-lite/issues"
+    "url": "https://github.com/niutech/petite-vue-i18n-lite/issues"
   },
-  "homepage": "https://github.com/FrontLabsOfficial/vue-i18n-lite/tree/master#readme",
+  "homepage": "https://github.com/niutech/petite-vue-i18n-lite/tree/master#readme",
   "files": [
     "dist/*.js",
     "dist/vue-i18n-lite.d.ts",
@@ -56,7 +57,6 @@
     "semver": "^7.3.5",
     "ts-jest": "^26.5.5",
     "typescript": "^4.2.4",
-    "vue": "3.0.11",
     "yorkie": "^2.0.0"
   },
   "gitHooks": {
@@ -72,6 +72,6 @@
     ]
   },
   "peerDependencies": {
-    "vue": "^3.0.0"
+    "petite-vue": "^0.2.3"
   }
 }

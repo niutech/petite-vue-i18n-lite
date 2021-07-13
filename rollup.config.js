@@ -9,7 +9,7 @@ const name = pkg.name
 
 const banner = `/*!
   * ${pkg.name} v${pkg.version}
-  * (c) ${new Date().getFullYear()} Erik Pham
+  * (c) ${new Date().getFullYear()} Erik Pham & niu tech
   * @license MIT
   */`
 
@@ -97,9 +97,7 @@ function createConfig(format, output, plugins = []) {
   // during a single build.
   hasTSChecked = true
 
-  const external = [
-    'vue',
-  ]
+  const external = ['vue']
 
   const nodePlugins = [resolve(), commonjs()]
 

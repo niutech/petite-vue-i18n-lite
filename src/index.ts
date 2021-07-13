@@ -1,4 +1,3 @@
-import { App, ref, readonly } from 'vue'
 import {
   getMessage,
   isEmpty,
@@ -13,16 +12,18 @@ import {
   I18nValues,
   I18nLocaleMessages,
 } from './types'
-import { vueI18nKey } from './injectionSymbols'
 
 /**
- * Creates a I18n instance that can be used by a Vue app.
+ * Creates a I18n instance that can be used by a Petite Vue app.
  *
  * @param options - {@link I18nOptions}
  */
 export function createI18n(options?: I18nOptions): I18n {
-  const initOptions = Object.assign({ locale: 'en', messages: {} }, options)
-  const current = ref(initOptions.locale)
+  const initOptions = Object.assign(
+    { locale: 'en', fallbackLocale: 'en', messages: {} },
+    options
+  )
+  const current = initOptions.locale
   const locales: I18nLocales = initOptions.messages
 
   return {
@@ -32,12 +33,11 @@ export function createI18n(options?: I18nOptions): I18n {
       }
 
       const locale =
-        typeof option === 'string' && option ? option : current.value
-      if (!locales[locale]) {
-        return key
-      }
+        typeof option === 'string' && option ? option : this.current
 
-      let message = getMessage(locales[locale], key)
+      let message =
+        getMessage(locales[locale], key) ||
+        getMessage(locales[initOptions.fallbackLocale], key)
       if (option && typeof option !== 'string') {
         const values = parseLocaleValues(message, option)
         if (!isEmpty(values)) {
@@ -47,15 +47,10 @@ export function createI18n(options?: I18nOptions): I18n {
 
       return message || key
     },
-    current: readonly(current),
-    options: readonly(options || {}),
-    install(app: App) {
-      const context = this
-      app.config.globalProperties.$t = context.t
-      app.provide(vueI18nKey, context)
-    },
+    current,
+    options: options || {},
     changeLocale(locale: string) {
-      current.value = locale
+      this.current = locale
     },
     setLocaleMessage(locale: string, messages: I18nLocaleMessages) {
       locales[locale] = Object.assign({}, locales[locale] || {}, messages)
@@ -66,12 +61,10 @@ export function createI18n(options?: I18nOptions): I18n {
   }
 }
 
-export * from './useApi'
-export * from './globalExtensions'
 export * from './types'
 
 /**
- * Super lightweight internationalization (i18n) plugin for Vue 3
+ * Super lightweight internationalization (i18n) plugin for Petite Vue
  *
  * @packageDocumentation
  */
