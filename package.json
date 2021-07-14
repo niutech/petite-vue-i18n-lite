@@ -1,6 +1,6 @@
 {
   "name": "petite-vue-i18n-lite",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/petite-vue-i18n-lite.cjs.js",
   "unpkg": "dist/petite-vue-i18n-lite.global.js",
   "jsdelivr": "dist/petite-vue-i18n-lite.global.js",

@@ -4,10 +4,23 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vue i18n lite</title>
+    <title>Petite Vue i18n lite</title>
 </head>
 <body>
-<div id="app"></div>
+<div id="app" v-scope="{ added: false, languages: [ { code: 'vi', name: 'Tiếng Việt' }, { code: 'en', name: 'English' } ] }">
+  <h2>{{ t('button.add') }}</h2>
+  <p>Current: {{ current }}</p>
+  <label>
+    Select language
+    <select :value="current" @change="changeLocale($event.target.value)">
+      <option :value="lang.code" v-for="lang in languages">
+        {{ lang.name }}
+      </option>
+    </select>
+  </label>
+  <br>
+  <button @click="setLocaleMessage('fr', { button: { add: 'ajouter' } }); added = true; languages.push({ code: 'fr', name: 'French' })" v-if="!added">Add new locale</button>
+</div>
 <script type="module" src="/src/main.ts"></script>
 </body>
 </html>

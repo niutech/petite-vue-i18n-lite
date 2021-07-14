@@ -6,11 +6,9 @@
     "serve": "vite"
   },
   "dependencies": {
-    "@vue/compiler-sfc": "^3.0.11"
+    "petite-vue": "^0.2.3"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.2.2",
-    "@vitejs/plugin-vue-jsx": "^1.1.3",
     "vite": "^2.2.3"
   }
 }

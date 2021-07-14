@@ -1,9 +1,9 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'petite-vue'
 import { createI18n } from '../../src'
 
 const i18n = createI18n({
   locale: 'en',
+  fallbackLocale: 'en',
   messages: {
     en: {
       button: {
@@ -18,6 +18,4 @@ const i18n = createI18n({
   },
 })
 
-const app = createApp(App)
-app.use(i18n)
-app.mount('#app')
+createApp(i18n).mount()
