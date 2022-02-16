@@ -1,6 +1,6 @@
 {
   "name": "petite-vue-i18n-lite",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "dist/petite-vue-i18n-lite.cjs.js",
   "unpkg": "dist/petite-vue-i18n-lite.global.js",
   "jsdelivr": "dist/petite-vue-i18n-lite.global.js",
@@ -72,6 +72,6 @@
     ]
   },
   "peerDependencies": {
-    "petite-vue": "^0.2.3"
+    "petite-vue": "*"
   }
 }
